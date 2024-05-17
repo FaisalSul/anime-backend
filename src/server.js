@@ -7,12 +7,14 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 app.use(cors());
-// This allows us to access the body of POST/PUT
-// requests in our route handlers (as req.body)
 app.use(express.json());
 
+// Root route to handle GET requests to "/"
+app.get('/', (req, res) => {
+    res.send('Welcome to the backend server!');
+});
+
 // Add all the routes to our Express server
-// exported from routes/index.js
 routes.forEach(route => {
     app[route.method](route.path, route.handler);
 });
