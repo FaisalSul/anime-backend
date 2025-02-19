@@ -5,7 +5,7 @@ export const postAnimeRoute = {
     method: 'post',
     handler: (req, res) => {
 
-         { title, description, estimatedTime, yearStarted, } = req.body;
+        const  { title, description, estimatedTime, yearStarted, } = req.body;
         const id = Math.floor(process.uptime());
         const data = {
             id: id,
